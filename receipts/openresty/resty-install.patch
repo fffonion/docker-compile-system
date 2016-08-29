@@ -1,0 +1,60 @@
+--- Makefile	2016-08-24 11:51:15.045868968 -0400
++++ /tmp/Makefile	2016-08-24 12:12:51.467755837 -0400
+@@ -3226,57 +3226,8 @@
+ 
+ 	test -d '$(DESTDIR)/usr/local/openresty/nginx/sbin' \
+ 		|| mkdir -p '$(DESTDIR)/usr/local/openresty/nginx/sbin'
+-	test ! -f '$(DESTDIR)/usr/local/openresty/nginx/sbin/nginx' \
+-		|| mv '$(DESTDIR)/usr/local/openresty/nginx/sbin/nginx' \
+-			'$(DESTDIR)/usr/local/openresty/nginx/sbin/nginx.old'
+ 	cp objs/nginx '$(DESTDIR)/usr/local/openresty/nginx/sbin/nginx'
+ 
+-	test -d '$(DESTDIR)/etc/nginx' \
+-		|| mkdir -p '$(DESTDIR)/etc/nginx'
+-
+-	cp conf/koi-win '$(DESTDIR)/etc/nginx'
+-	cp conf/koi-utf '$(DESTDIR)/etc/nginx'
+-	cp conf/win-utf '$(DESTDIR)/etc/nginx'
+-
+-	test -f '$(DESTDIR)/etc/nginx/mime.types' \
+-		|| cp conf/mime.types '$(DESTDIR)/etc/nginx'
+-	cp conf/mime.types '$(DESTDIR)/etc/nginx/mime.types.default'
+-
+-	test -f '$(DESTDIR)/etc/nginx/fastcgi_params' \
+-		|| cp conf/fastcgi_params '$(DESTDIR)/etc/nginx'
+-	cp conf/fastcgi_params \
+-		'$(DESTDIR)/etc/nginx/fastcgi_params.default'
+-
+-	test -f '$(DESTDIR)/etc/nginx/fastcgi.conf' \
+-		|| cp conf/fastcgi.conf '$(DESTDIR)/etc/nginx'
+-	cp conf/fastcgi.conf '$(DESTDIR)/etc/nginx/fastcgi.conf.default'
+-
+-	test -f '$(DESTDIR)/etc/nginx/uwsgi_params' \
+-		|| cp conf/uwsgi_params '$(DESTDIR)/etc/nginx'
+-	cp conf/uwsgi_params \
+-		'$(DESTDIR)/etc/nginx/uwsgi_params.default'
+-
+-	test -f '$(DESTDIR)/etc/nginx/scgi_params' \
+-		|| cp conf/scgi_params '$(DESTDIR)/etc/nginx'
+-	cp conf/scgi_params \
+-		'$(DESTDIR)/etc/nginx/scgi_params.default'
+-
+-	test -f '$(DESTDIR)/etc/nginx/nginx.conf' \
+-		|| cp conf/nginx.conf '$(DESTDIR)/etc/nginx/nginx.conf'
+-	cp conf/nginx.conf '$(DESTDIR)/etc/nginx/nginx.conf.default'
+-
+-	test -d '$(DESTDIR)/run' \
+-		|| mkdir -p '$(DESTDIR)/run'
+-
+-	test -d '$(DESTDIR)/var/log/nginx' \
+-		|| mkdir -p '$(DESTDIR)/var/log/nginx'
+-
+-	test -d '$(DESTDIR)/usr/local/openresty/nginx/html' \
+-		|| cp -R docs/html '$(DESTDIR)/usr/local/openresty/nginx'
+-
+-	test -d '$(DESTDIR)/var/log/nginx' \
+-		|| mkdir -p '$(DESTDIR)/var/log/nginx'
+-
+ 	test -d '$(DESTDIR)/usr/local/openresty/nginx/modules' \
+ 		|| mkdir -p '$(DESTDIR)/usr/local/openresty/nginx/modules'
+ 

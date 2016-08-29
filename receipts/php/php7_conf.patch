@@ -1,0 +1,15 @@
+*** a/configure	2016-01-09 12:07:02.015000600 +0800
+--- b/configure	2016-01-09 12:07:27.003000575 +0800
+***************
+*** 38269,38278 ****
+      test -f $i/include/gmp.h && GMP_DIR=$i && break
+    done
+  
+-   if test -z "$GMP_DIR"; then
+-     as_fn_error $? "Unable to locate gmp.h" "$LINENO" 5
+-   fi
+- 
+  
+    save_old_LDFLAGS=$LDFLAGS
+    ac_stuff="
+--- 38269,38274 ----
