@@ -20,22 +20,22 @@ if [[ ! -z $2 && $2 == "-minimal" ]]; then
 	--without-http_ssi_module --without-http_userid_module --without-http_uwsgi_module --without-http_scgi_module --without-http_empty_gif_module --without-http_browser_module
 else
 	if [[ ! -z $2 && $2 == "-rtmp" ]]; then
-		extra_mod="--add-module=/build/nginx-modules/nginx-rtmp-module"
+		echo 123
 	fi
 	./configure -j4 --conf-path=/etc/nginx/nginx.conf --http-log-path=/var/log/nginx/access.log --error-log-path=/var/log/nginx/error.log --lock-path=/var/lock/nginx.lock --pid-path=/run/nginx.pid --http-client-body-temp-path=/var/lib/nginx/body --http-fastcgi-temp-path=/var/lib/nginx/fastcgi --http-proxy-temp-path=/var/lib/nginx/proxy --http-scgi-temp-path=/var/lib/nginx/scgi --http-uwsgi-temp-path=/var/lib/nginx/uwsgi --with-pcre-jit --with-ipv6 --with-http_ssl_module --with-http_realip_module --with-http_addition_module  --with-http_gzip_static_module --with-threads --with-http_v2_module --with-http_sub_module  --with-file-aio  --with-stream --with-stream_ssl_module --with-http_stub_status_module  --with-http_dav_module \
 	  --add-module=/build/nginx-modules/stream-lua-nginx-module --add-module=/build/nginx-modules/ngx_cache_purge \
 	  --with-mail=dynamic  --with-http_geoip_module=dynamic --with-http_image_filter_module=dynamic --with-http_xslt_module=dynamic \
           --without-http_ssi_module --without-http_userid_module --without-http_uwsgi_module --without-http_scgi_module --without-http_empty_gif_module --without-http_browser_module \
-	  --add-dynamic-module=/build/nginx-modules/nginx-unzip-module --add-dynamic-module=/build/nginx-modules/nginx-dav-ext-module $extra_mod \
-
-	  # --add-dynamic-module=/build/ngx_pagespeed
+	  --add-dynamic-module=/build/nginx-modules/nginx-unzip-module --add-dynamic-module=/build/nginx-modules/nginx-dav-ext-module --add-dynamic-module=/build/nginx-modules/nginx-rtmp-module --add-dynamic-module=/build/nginx-modules/nginx-module-vts $extra_mod \
+	
+	  # --add-dynamic-module=/build/ngx_pagespeed 
 fi
+
+#./configure -j4 --conf-path=/etc/nginx/nginx.conf --http-log-path=/var/log/nginx/access.log --error-log-path=/var/log/nginx/error.log --lock-path=/var/lock/nginx.lock --pid-path=/run/nginx.pid --http-client-body-temp-path=/var/lib/nginx/body --http-fastcgi-temp-path=/var/lib/nginx/fastcgi --http-proxy-temp-path=/var/lib/nginx/proxy --http-scgi-temp-path=/var/lib/nginx/scgi --http-uwsgi-temp-path=/var/lib/nginx/uwsgi --with-pcre-jit --with-ipv6 --with-http_ssl_module --with-http_realip_module --with-http_addition_module  --with-http_gzip_static_module --with-threads --with-http_v2_module --with-http_sub_module  --with-file-aio  --with-stream --with-stream_ssl_module --with-http_stub_status_module  --with-http_dav_module
 
 pushd build/nginx-*/objs
 patch -p0 < $SCR/openresty/resty-install.patch
 popd
-
-#./configure -j4 --conf-path=/etc/nginx/nginx.conf --http-log-path=/var/log/nginx/access.log --error-log-path=/var/log/nginx/error.log --lock-path=/var/lock/nginx.lock --pid-path=/run/nginx.pid --http-client-body-temp-path=/var/lib/nginx/body --http-fastcgi-temp-path=/var/lib/nginx/fastcgi --http-proxy-temp-path=/var/lib/nginx/proxy --http-scgi-temp-path=/var/lib/nginx/scgi --http-uwsgi-temp-path=/var/lib/nginx/uwsgi --with-pcre-jit --with-ipv6 --with-http_ssl_module --with-http_realip_module --with-http_addition_module  --with-http_gzip_static_module --with-threads --with-http_v2_module --with-http_sub_module  --with-file-aio  --with-stream --with-stream_ssl_module --with-http_stub_status_module  --with-http_dav_module
 
 make -j4
 make install
@@ -61,7 +61,7 @@ openresty$2
 3
 $VERSION
 4
-1
+$SUBVERSION
 6
 httpd
 10
@@ -73,3 +73,4 @@ nginx-light
 13
 nginx,nginx-common,nginx-extras$replace_pkg
 EOF
+

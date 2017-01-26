@@ -22,7 +22,7 @@ nmap
 3
 $VERSION
 4
-1
+$SUBVERSION
 6
 net
 10

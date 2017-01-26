@@ -1,6 +1,6 @@
 #!/bin/bash
 NAME=openresty
-VERSION=1.11.2.1
+VERSION=1.11.2.2
 TARBALL=https://openresty.org/download/openresty-$VERSION.tar.gz
 SCR=$(dirname $(readlink -f $0))
 

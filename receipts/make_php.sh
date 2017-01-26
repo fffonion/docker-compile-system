@@ -28,7 +28,7 @@ php
 3
 $VERSION
 4
-1
+$SUBVERSION
 6
 php
 10
@@ -40,6 +40,6 @@ php,php-cli,php-config,php-fpm,php7.0-fpm,php7.0-common,php7.0-cli,php7.0-cgi
 php7.0-fpm,php7.0-common,php7.0-cli,php7.0-cgi
 EOF
 
-
+	
 	#--enable-ftp --enable-exif --with-calendar --enable-sysvmsg --enable-sysvsem --enable-sysvshm --enable-fcntl
 #--with-pic

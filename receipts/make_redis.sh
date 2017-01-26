@@ -18,7 +18,7 @@ redis
 3
 $VERSION
 4
-1
+$SUBVERSION
 6
 database
 10

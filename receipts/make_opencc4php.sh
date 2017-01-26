@@ -1,26 +1,25 @@
 #!/bin/bash
-cd medusa-*
+cd opencc4php-master
+phpize
 ./configure
 make -j4
 make install
 
 VERSION=$1
-echo > description-pak
+echo "OpenCC for PHP extension" > description-pak
 checkinstall << EOF
 n
-1
-medusa
 2
-medusa
+opencc4php
 3
 $VERSION
 4
 $SUBVERSION
 6
-security
+net
 10
-libssl1.0.2,libssh2-1
+libopencc
 11
-medusa
+opencc4php
 EOF
 

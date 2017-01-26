@@ -1,6 +1,6 @@
 #!/bin/bash
 NAME=aria2
-VERSION=1.26.1
+VERSION=1.31.0
 TARBALL=https://github.com/aria2/aria2/releases/download/release-$VERSION/aria2-$VERSION.tar.gz
 SCR=$(dirname $(readlink -f $0))
 

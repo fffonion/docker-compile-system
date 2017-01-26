@@ -1,7 +1,6 @@
 #!/bin/bash
-cd medusa-*
-./configure
-make -j4
+cd v8*
+make -j8 release
 make install
 
 VERSION=$1
@@ -9,18 +8,18 @@ echo > description-pak
 checkinstall << EOF
 n
 1
-medusa
+aria2
 2
-medusa
+aria2
 3
 $VERSION
 4
 $SUBVERSION
 6
-security
+downloader
 10
-libssl1.0.2,libssh2-1
+libssl1.0.2,libc-ares2
 11
-medusa
+aria2c, aria2
 EOF
 

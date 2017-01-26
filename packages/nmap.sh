@@ -1,6 +1,6 @@
 #!/bin/bash
 NAME=nmap
-VERSION=7.12
+VERSION=7.40
 TARBALL=https://nmap.org/dist/nmap-$VERSION.tgz
 SCR=$(dirname $(readlink -f $0))
 
