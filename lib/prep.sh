@@ -25,5 +25,9 @@ image_name=build-$(cat /dev/urandom | tr -dc 'a-z0-9' | fold -w 16 | head -n 1)
 pushd $builddir/$arch
 sudo rm -rf $NAME-*
 
-wget $TARBALL -O $NAME-$VERSION.tar.gz
-tar zxvf $NAME-$VERSION.tar.gz
+if [[ ! -z $TARBALL ]]; then
+    wget $TARBALL -O $NAME-$VERSION.tar.gz
+    tar zxvf $NAME-$VERSION.tar.gz
+elif [[ ! -z $GIT ]]; then
+    git clone --recursive $GIT --branch $GIT_REV $NAME-$VERSION
+fi

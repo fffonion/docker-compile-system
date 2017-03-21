@@ -1,6 +1,6 @@
 #!/bin/bash
 NAME=redis
-VERSION=3.2.6
+VERSION=3.2.8
 TARBALL=http://download.redis.io/releases/redis-$VERSION.tar.gz
 SCR=$(dirname $(readlink -f $0))
 

@@ -1,6 +1,6 @@
 #!/bin/bash
 NAME=opencc
-VERSION=1.0.4
+VERSION=1.0.5
 TARBALL=https://github.com/BYVoid/OpenCC/archive/master.tar.gz
 SCR=$(dirname $(readlink -f $0))
 

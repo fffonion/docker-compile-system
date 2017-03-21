@@ -1,7 +1,8 @@
 #!/bin/bash
 NAME=shadowsocks-libev
-VERSION=2.6.3
-TARBALL=https://github.com/shadowsocks/shadowsocks-libev/archive/v$VERSION.tar.gz
+VERSION=3.0.4
+GIT="https://github.com/shadowsocks/shadowsocks-libev.git"
+GIT_REV="v${VERSION}"
 SCR=$(dirname $(readlink -f $0))
 
 source $SCR/../lib/prep.sh
